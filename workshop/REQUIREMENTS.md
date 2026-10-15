@@ -12,7 +12,7 @@
 | **Git** | Saves versions of your code (commits, branches) | `git --version` |
 | **Node.js 22 LTS or newer** (22.12+) | Runs the app and the tests | `node -v` and `npm -v` |
 | **GitHub CLI** (`gh`) | Lets you and the agent create issues and PRs from the terminal | `gh --version`, then `gh auth status` |
-| **Claude Code** + a way to sign in | The AI coding agent. Your facilitator will explain how to get access at the workshop. Claude accounts are for ages 18+, so if you're under 18, use whatever access the facilitator provides, or pair up and watch. | `claude --version` |
+| **Claude Code** + the workshop invite | The AI coding agent. You'll get an **email invite from Anthropic (Claude Console)** to the workshop's organization, which pays for your usage. Accept it before you come. You don't need your own Claude subscription. No invite? Pair up and watch. | `claude --version` |
 | A charged battery or a charger | The workshop is 45 minutes of terminal time | - |
 
 ## Nice to have (not required)
@@ -40,10 +40,12 @@ Official Claude Code install docs: <https://code.claude.com/docs/en/setup>
 
 ```bash
 gh auth login      # GitHub.com -> HTTPS -> Login with a web browser
-claude             # follow the sign-in prompt using the access from the workshop, then type /exit
+claude             # choose "Anthropic Console account", then "Sign in with your Console account"
 git config --global user.name "Your Name"
 git config --global user.email "the-email-on-your-github-account@example.com"
 ```
+
+For Claude: accept the email invite first. When the browser opens, log in with **the same email the invite went to** and pick the workshop organization. Back in Claude Code, type `/status` to check you're on the Console account, then `/exit`. Never share your login or paste API keys anywhere.
 
 ## Get the repo and check everything
 
