@@ -123,6 +123,28 @@ body {
   }
 }
 
+.error {
+  padding: 1.5rem;
+  background: var(--panel);
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+}
+
+.error p {
+  margin: 0 0 1rem;
+}
+
+.error button {
+  padding: 0.5rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--amber);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 .status--ontime {
   color: var(--green);
 }

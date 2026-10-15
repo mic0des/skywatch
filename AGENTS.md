@@ -53,7 +53,8 @@ workshop/                        handout, prompts, and requirements for students
 - Accessibility matters: loading and error states should be announced (`role="status"` / `role="alert"`).
 - Do not add dependencies without asking.
 
-## Current known gaps
+## Data loading
 
-- `App.jsx` shows nothing while departures load (about 1.5 s of blank screen).
-- If `getDepartures` rejects, the error is ignored and the user sees nothing.
+- `src/hooks/useDepartures.js` returns `{ status: 'loading' | 'success' | 'error', flights, error, retry }`.
+- `App.jsx` shows `LoadingScreen` while loading, an alert with a Retry button on error, and the board on success.
+- Visit `/?fail` in the browser to simulate an outage.

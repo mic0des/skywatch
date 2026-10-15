@@ -1,19 +1,12 @@
-import { useEffect, useState } from 'react';
-import { getDepartures } from './api/getDepartures.js';
 import DeparturesBoard from './components/DeparturesBoard.jsx';
+import LoadingScreen from './components/LoadingScreen.jsx';
+import { useDepartures } from './hooks/useDepartures.js';
+
+// Visit /?fail to see what an outage looks like.
+const simulateOutage = new URLSearchParams(window.location.search).has('fail');
 
 export default function App() {
-  const [flights, setFlights] = useState(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    getDepartures().then((data) => {
-      if (!cancelled) setFlights(data);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const { status, flights, error, retry } = useDepartures({ fail: simulateOutage });
 
   return (
     <main className="app">
@@ -21,8 +14,19 @@ export default function App() {
         <h1>SkyWatch</h1>
         <p className="app__tagline">Live departures from Hack the Skies International</p>
       </header>
-      {/* TODO: nothing is shown while flights are loading, and errors are ignored. */}
-      {flights && <DeparturesBoard flights={flights} />}
+
+      {status === 'loading' && <LoadingScreen />}
+
+      {status === 'error' && (
+        <div className="error" role="alert">
+          <p>{error.message}</p>
+          <button type="button" onClick={retry}>
+            Retry
+          </button>
+        </div>
+      )}
+
+      {status === 'success' && <DeparturesBoard flights={flights} />}
     </main>
   );
 }
