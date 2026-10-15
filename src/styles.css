@@ -73,6 +73,56 @@ body {
   color: var(--muted);
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  background: var(--panel);
+  border-radius: 8px;
+}
+
+.loading__sky {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 48px;
+  overflow: hidden;
+  border-bottom: 2px dashed #1e3a5f;
+}
+
+.loading__plane {
+  position: absolute;
+  top: 6px;
+  left: -40px;
+  font-size: 2rem;
+  color: var(--amber);
+  animation: fly 1.8s linear infinite;
+}
+
+.loading__message {
+  margin: 0;
+  color: var(--muted);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+@keyframes fly {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(380px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading__plane {
+    animation: none;
+    left: calc(50% - 1rem);
+  }
+}
+
 .status--ontime {
   color: var(--green);
 }
