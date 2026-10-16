@@ -47,6 +47,19 @@ report(
   'See workshop/REQUIREMENTS.md. No Claude Code? You can still watch and follow along.',
 );
 
+if (claude.ok) {
+  const MIN_CLAUDE = [2, 1, 284];
+  const found = claude.stdout.match(/(\d+)\.(\d+)\.(\d+)/);
+  const version = found ? found.slice(1).map(Number) : null;
+  const diff = version && version.map((n, i) => n - MIN_CLAUDE[i]).find((d) => d !== 0);
+  report(
+    version && (diff === undefined || diff > 0) ? 'PASS' : 'WARN',
+    `Claude Code ${MIN_CLAUDE.join('.')}+`,
+    version ? `you have ${version.join('.')}` : 'could not read the version',
+    'claude update',
+  );
+}
+
 // This repo
 report(
   existsSync('node_modules') ? 'PASS' : 'FAIL',
