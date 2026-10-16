@@ -12,7 +12,7 @@
 | **Git** | Saves versions of your code (commits, branches) | `git --version` |
 | **Node.js 22 LTS or newer** (22.12+) | Runs the app and the tests | `node -v` and `npm -v` |
 | **GitHub CLI** (`gh`) | Lets you and the agent create issues and PRs from the terminal | `gh --version`, then `gh auth status` |
-| **Claude Code** + the workshop invite | The AI coding agent. You'll get an **email invite from Anthropic (Claude Console)** to the workshop's organization, which pays for your usage. Accept it before you come. You don't need your own Claude subscription. No invite? Pair up and watch. | `claude --version` |
+| **Claude Code 2.1.284 or newer** + the workshop invite | The AI coding agent. You'll get an **email invite from Anthropic (Claude Console)** to the workshop's organization, which pays for your usage. Accept it before you come. You don't need your own Claude subscription. No invite? Pair up and watch. | `claude --version` (2.1.284 or higher) |
 | A charged battery or a charger | The workshop is 45 minutes of terminal time | - |
 
 ## Nice to have (not required)
@@ -33,6 +33,8 @@ Open a terminal: **Terminal** on macOS, **PowerShell** on Windows.
 | Claude Code | `curl -fsSL https://claude.ai/install.sh \| bash` | `irm https://claude.ai/install.ps1 \| iex` | `curl -fsSL https://claude.ai/install.sh \| bash` |
 
 After installing, **close and reopen your terminal** so it can find the new commands.
+
+Already have Claude Code? Run `claude update` to get the latest version.
 
 Official Claude Code install docs: <https://code.claude.com/docs/en/setup>
 
